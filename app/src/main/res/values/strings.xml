@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Blinks</string>
+
+    <!-- Menus Actions -->
+    <string name="menu_action_done">Done</string>
+    
+    <!-- Sign Up -->
+    <string name="sign_up_toolbar_title">Create Account</string>
+    <string name="sign_up_username_hint">Username</string>
+    <string name="sign_up_password_hint">Password</string>
+    <string name="sign_up_confirm_password_hint">Confirm Password</string>
+    <string name="sign_up_create_account_hint">Create Account</string>
+
+    <!-- Main -->
+    <string name="main_toolbar_title">Home</string>
+
+    <!-- Add Thread -->
+    <string name="add_thread_toolbar_title">New Thread</string>
+    <string name="add_thread_title_hint">Title</string>
+    <string name="add_thread_title_invalid_message_empty">This field is required</string>
+    <string name="add_thread_url_hint">Url</string>
+    <string name="add_thread_url_invalid_message_empty">This field is required</string>
+    <string name="add_thread_url_invalid_message">Invalid URL</string>
+
+    <!-- Comments -->
+    <string name="comments_toolbar_title">Comments</string>
+
+    <!-- Fragment Comments -->
+    <string name="fragment_comments_add_comment_bt">Add a Comment</string>
+
+    <!-- Fragment Nested Comments -->
+    <string name="fragment_nested_comments_reply_bt">Reply</string>
+
+    <!-- Item Comment -->
+    <string name="item_comment_reply">Reply</string>
+
+    <!-- Add Comment -->
+    <string name="add_comment_toolbar_title">Add Comment</string>
+    <string name="add_comment_et_hint">Add comment...</string>
+    <string name="add_comment_et_invalid_message_empty">This field is required</string>
+
+    <!-- Thread Web View -->
+    
+
+</resources>
