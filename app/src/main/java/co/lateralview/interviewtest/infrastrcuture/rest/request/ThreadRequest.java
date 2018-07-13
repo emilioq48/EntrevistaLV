@@ -50,9 +50,14 @@ public class ThreadRequest
 				.replace("{parent_id}", parameters.getString(Parameters.PARENT_ID));
 	}
 
+//	public static void getThreads(RequestHandler requestHandler)
+//	{
+//		RestClientManager.getInstance().makeJsonArrayRequest(Request.Method.GET, Url.GET_THREADS.getUrl(), requestHandler);
+//	}
+
 	public static void getThreads(RequestHandler requestHandler)
 	{
-		RestClientManager.getInstance().makeJsonArrayRequest(Request.Method.GET, Url.GET_THREADS.getUrl(), requestHandler);
+		RestClientManager.getInstance().makeJsonArrayRequest(Request.Method.GET, "http://192.168.0.156", requestHandler);
 	}
 
 	public static void getThreadComments(RequestHandler requestHandler, Bundle urlParameters)
