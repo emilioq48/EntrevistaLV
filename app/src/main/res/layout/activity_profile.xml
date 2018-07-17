@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.ProfileActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toolbarId="@+id/toolbar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll"
+            app:titleEnabled="false">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_background_color"
+                android:gravity="center"
+                android:minHeight="@dimen/activity_profile_card_min_height"
+                android:paddingRight="@dimen/activity_profile_card_padding_right"
+                android:paddingTop="@dimen/activity_profile_card_padding_top"
+                tools:background="@color/profile_background_color"
+                tools:ignore="RtlHardcoded">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/activity_profile_container_rl_padding_left"
+                    android:paddingTop="@dimen/activity_profile_container_rl_padding_top">
+
+                    <ImageView
+                        android:id="@+id/activity_profile_iv"
+                        android:layout_width="@dimen/activity_profile_icon_width"
+                        android:layout_height="@dimen/activity_profile_icon_height"
+                        android:fitsSystemWindows="true"
+                        android:paddingTop="@dimen/activity_profile_icon_padding_top"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/ic_profile"
+                        tools:ignore="RtlHardcoded" />
+
+                    <LinearLayout
+                        android:id="@+id/activity_profile_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@+id/activity_profile_iv"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/activity_profile_ll_margint_left"
+                        android:layout_toRightOf="@+id/activity_profile_iv"
+                        android:orientation="vertical"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:text="@string/activity_profile_card_title"
+                            android:textSize="@dimen/activity_profile_card_title_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/activity_profile_card_posts"
+                            style="@style/ActivityProfileSubTitle"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/activity_profile_card_comments"
+                            style="@style/ActivityProfileSubTitle"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <include layout="@layout/toolbar_custom_title" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/activity_profile_tl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_collapseMode="pin"
+            app:tabIndicatorColor="@color/grey1"
+            app:tabSelectedTextColor="@color/grey1"
+            app:tabTextAppearance="@style/TabTextAppearance"
+            app:tabTextColor="@color/grey1" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_profile_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>

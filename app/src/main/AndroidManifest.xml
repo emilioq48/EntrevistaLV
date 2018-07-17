@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="co.lateralview.interviewtest"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="co.lateralview.interviewtest">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".application.BlinksApplication"
@@ -10,28 +10,24 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".ui.activity.SignInActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MainActivity">
-        </activity>
-        <activity android:name=".ui.activity.CommentsActivity">
-        </activity>
-        <activity android:name=".ui.activity.AddThreadActivity">
-        </activity>
+        <activity android:name=".ui.activity.MainActivity"
+            android:configChanges="orientation|screenSize"></activity>
+        <activity android:name=".ui.activity.CommentsActivity"></activity>
+        <activity android:name=".ui.activity.AddThreadActivity"></activity>
         <activity
             android:name=".ui.activity.AddCommentActivity"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
-        <activity android:name=".ui.activity.WebViewActivity">
-        </activity>
-        <activity android:name=".ui.activity.SignUpActivity">
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".ui.activity.WebViewActivity"></activity>
+        <activity android:name=".ui.activity.SignUpActivity"></activity>
+        <activity android:name=".ui.activity.ProfileActivity"></activity>
     </application>
 
 </manifest>

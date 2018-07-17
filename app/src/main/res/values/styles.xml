@@ -1,7 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppTheme"/>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
@@ -19,7 +24,39 @@
         <item name="android:textColorHighlight">@color/white</item>
         <item name="android:textColorLink">@color/white</item>
         <item name="android:background">@color/grey2</item>
-        <!--<item name="android:textCursorDrawable">@drawable/search_cursor_light</item>-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlayGreyText" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/grey1</item>
+        <item name="colorPrimaryDark">@color/grey1</item>
+        <item name="colorAccent">@color/grey1</item>
+        <item name="android:gravity">center_horizontal</item>
+        </style>
+
+    <style name="CommentDescription">
+        <item name="android:textSize">@dimen/fragment_item_posts_comment_text_size</item>
+        <item name="android:color">@color/grey1</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/fragment_item_posts_comment_text_size</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <!--Any text styling can be done here-->
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/toolbar_title_color</item>
+    </style>
+
+    <style name="ActivityProfileSubTitle">
+        <item name="android:layout_marginTop">@dimen/activity_profile_card_sub_title_margin_top</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">@dimen/activity_profile_card_sub_title_text_size</item>
     </style>
 
 </resources>
