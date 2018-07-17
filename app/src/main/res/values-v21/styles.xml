@@ -2,4 +2,15 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppTheme"/>
+
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <!--Any text styling can be done here-->
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/toolbar_title_color</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:letterSpacing">0.15</item>
+    </style>
 </resources>

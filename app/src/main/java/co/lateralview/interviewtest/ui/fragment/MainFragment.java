@@ -1,6 +1,5 @@
 package co.lateralview.interviewtest.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,13 +19,14 @@ import java.util.List;
 import co.lateralview.interviewtest.R;
 import co.lateralview.interviewtest.domain.model.Thread;
 import co.lateralview.interviewtest.infrastrcuture.rest.request.ThreadRequest;
-import co.lateralview.interviewtest.ui.activity.CommentsActivity;
-import co.lateralview.interviewtest.ui.activity.WebViewActivity;
+import co.lateralview.interviewtest.ui.adapter.ThreadsListAdapter;
+import co.lateralview.interviewtest.ui.component.SimpleDividerItemDecoration;
 
 public class MainFragment extends Fragment {
     private LinearLayout mProgressLinearLayout;
     private RecyclerView mTreadsRecyclerView;
     private LinearLayoutManager mRvLayoutManager;
+    private ThreadsListAdapter mThreadsListAdapter;
 
     private List<Thread> mThreads = new ArrayList<>();
 
@@ -39,21 +39,21 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        Bundle urlParameters = new Bundle();
-//        urlParameters.putString(ThreadRequest.Parameters.THREAD_ID, "Aj1Z3A");
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_main, container, false);
+        initializeControls(v);
+        getThreads();
+        return v;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
+    private void getThreads() {
         RequestHandler<Thread> requestHandler = new RequestHandler<>(new RequestCallbacks<List<Thread>, Object>() {
 
             @Override
             protected void onRequestSuccess(List<Thread> response) {
                 hideProgress();
-                Log.d("response", response.toString());
+                mThreads = response;
+                mThreadsListAdapter.setData(mThreads);
             }
 
             @Override
@@ -66,31 +66,18 @@ public class MainFragment extends Fragment {
         });
         showProgress();
         ThreadRequest.getThreads(requestHandler);
-
-        //mTreadsRecyclerView.setAdapter();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_main, container, false);
-        initializeControls(v);
-        return v;
     }
 
     private void initializeControls(View v) {
         mProgressLinearLayout = (LinearLayout) v.findViewById(R.id.fragment_main_progress_ll);
-    }
+        mTreadsRecyclerView = (RecyclerView) v.findViewById(R.id.fragment_main_threads_rv);
 
-    private void startCommentsActivity(Thread thread) {
-        Intent i = new Intent(getActivity(), CommentsActivity.class);
-        i.putExtra(CommentsActivity.EXTRA_THREAD, thread);
-        startActivity(i);
-    }
-
-    private void startWebViewActivity(Thread thread) {
-        Intent i = new Intent(getActivity(), WebViewActivity.class);
-        i.putExtra(WebViewActivity.EXTRA_THREAD, thread);
-        startActivity(i);
+        mTreadsRecyclerView.setHasFixedSize(true);
+        mRvLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        mTreadsRecyclerView.setLayoutManager(mRvLayoutManager);
+        mThreadsListAdapter = new ThreadsListAdapter(mThreads);
+        mTreadsRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
+        mTreadsRecyclerView.setAdapter(mThreadsListAdapter);
     }
 
     private void hideProgress() {
@@ -99,6 +86,28 @@ public class MainFragment extends Fragment {
 
     private void showProgress() {
         mProgressLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void setScrollListener(final OnScrollListener mOnScrollListener) {
+        mTreadsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                boolean mScrolledUp;
+                mScrolledUp = dy < 0;
+                mOnScrollListener.onScrolled(mScrolledUp);
+            }
+        });
+    }
+
+
+    public interface OnScrollListener {
+        void onScrolled(boolean scrolledUp);
     }
 
 }

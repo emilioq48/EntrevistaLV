@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/post_background_color"
+    android:padding="@dimen/fragment_item_posts_padding">
+
+    <TextView
+        android:id="@+id/item_post_description_tv"
+        style="@style/CommentDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        tools:text="Til there is a search engine that won't keep track of your searches." />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_post_description_tv">
+
+        <ImageView
+            android:id="@+id/item_post_user_name_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/fragment_item_posts_profile_icon_padding_top"
+            android:paddingLeft="@dimen/fragment_item_posts_comment_padding_left"
+            android:scaleType="center"
+            android:src="@drawable/ic_profile_post"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            tools:text="john_carter" />
+        <TextView
+            android:id="@+id/item_post_user_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_post_user_name_iv"
+            android:paddingLeft="@dimen/fragment_item_posts_comment_padding_left"
+            android:paddingTop="@dimen/fragment_item_posts_comment_margin_top"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            tools:text="john_carter" />
+
+        <ImageView
+            android:id="@+id/item_post_comments_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/item_post_comments_tv"
+            android:paddingTop="@dimen/fragment_item_posts_profile_icon_padding_top"
+            android:scaleType="center"
+            android:src="@drawable/ic_comments_balloon"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            tools:text="john_carter" />
+        <TextView
+            android:id="@+id/item_post_comments_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/fragment_item_posts_comment_padding_right"
+            android:paddingTop="@dimen/fragment_item_posts_comment_margin_top"
+            android:text="@string/item_post_comments_text"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            tools:text="10 Comments" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -4,5 +4,42 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <!-- App Bar -->
+    <dimen name="app_bar_height">180dp</dimen>
+
+    <!-- General -->
     <dimen name="text_size_2">15sp</dimen>
+    <dimen name="no_dimension">0dp</dimen>
+
+    <!-- Main -->
+    <dimen name="activity_fab_elevation">12dp</dimen>
+
+    <!-- Posts -->
+    <dimen name="fragment_item_posts_padding">15dp</dimen>
+    <dimen name="fragment_item_posts_comment_margin_top">15dp</dimen>
+    <dimen name="fragment_item_posts_comment_padding_left">3dp</dimen>
+    <dimen name="fragment_item_posts_profile_icon_padding_left">15dp</dimen>
+    <dimen name="fragment_item_posts_comment_padding_right">@dimen/fragment_item_posts_comment_padding_left</dimen>
+    <dimen name="fragment_item_posts_comment_text_size">22sp</dimen>
+    <dimen name="fragment_item_posts_profile_icon_padding_top">10dp</dimen>
+
+    <!-- Thread -->
+    <dimen name="thread_tv_padding">10dp</dimen>
+    <dimen name="thread_tv_margin_top">10dp</dimen>
+    <dimen name="item_thread_margin_top">2dp</dimen>
+    <dimen name="item_thread_margin_bottom">@dimen/item_thread_margin_top</dimen>
+    <dimen name="activity_profile_card_min_height">200dp</dimen>
+    <dimen name="activity_profile_card_padding_right">70dp</dimen>
+    <dimen name="activity_profile_card_padding_top">20dp</dimen>
+    <dimen name="activity_profile_container_rl_padding_left">20dp</dimen>
+    <dimen name="activity_profile_container_rl_padding_top">20dp</dimen>
+    <dimen name="activity_profile_icon_width">100dp</dimen>
+    <dimen name="activity_profile_icon_height">100dp</dimen>
+    <dimen name="activity_profile_icon_padding_top">10dp</dimen>
+    <dimen name="activity_profile_ll_margint_left">20dp</dimen>
+    <dimen name="activity_profile_card_title_text_size">23sp</dimen>
+    <dimen name="activity_profile_card_sub_title_text_size">18sp</dimen>
+    <dimen name="activity_profile_card_sub_title_margin_top">5dp</dimen>
+
+
 </resources>

@@ -25,98 +25,85 @@ import julianfalcionelli.magicform.base.ValidatorCallbacks;
 import julianfalcionelli.magicform.validation.ValidationNotEmpty;
 import julianfalcionelli.magicform.validation.ValidationRegex;
 
-public class AddThreadActivity extends BaseActivity
-{
-	private EditText mTitleEditText;
-	private EditText mUrlEditText;
+public class AddThreadActivity extends BaseActivity {
+    private EditText mTitleEditText;
+    private EditText mUrlEditText;
 
-	private MagicForm mMagicForm;
+    private MagicForm mMagicForm;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_thread);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_thread);
 
-		initializeToolbar(true, getString(R.string.add_thread_toolbar_title));
-		initializeControls();
-		initializeForm();
-	}
+        initializeToolbar(true, getString(R.string.add_thread_toolbar_title));
+        initializeControls();
+        initializeForm();
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu_add_thread, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_thread, menu);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
-			case android.R.id.home:
-				onBackPressed();
-				break;
-			case R.id.action_done:
-				mMagicForm.validate();
-				break;
-		}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            case R.id.action_done:
+                mMagicForm.validate();
+                break;
+        }
 
-		return super.onOptionsItemSelected(item);
-	}
+        return super.onOptionsItemSelected(item);
+    }
 
-	private void initializeControls()
-	{
-		mTitleEditText = (EditText) findViewById(R.id.add_thread_title_et);
-		mUrlEditText = (EditText) findViewById(R.id.add_thread_url_et);
-	}
+    private void initializeControls() {
+        mTitleEditText = (EditText) findViewById(R.id.add_thread_title_et);
+        mUrlEditText = (EditText) findViewById(R.id.add_thread_url_et);
+    }
 
-	private void initializeForm()
-	{
-		mMagicForm = new MagicForm();
-		mMagicForm.addField(new FormField(mTitleEditText)
-						.addValidation(new ValidationNotEmpty().setMessage(getString(R.string.add_thread_title_invalid_message_empty))))
-				.addField(new FormField(mUrlEditText)
-						.addValidation(new ValidationNotEmpty().setMessage(getString(R.string.add_thread_url_invalid_message_empty)))
-						.addValidation(new ValidationRegex(Pattern.compile("^(http://|https://)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}\\.([a-z]+)?$")).setMessage(getString(R.string.add_thread_url_invalid_message))))
-				.setListener(new ValidatorCallbacks()
-				{
-					@Override
-					public void onSuccess()
-					{
-						addThread();
-					}
+    private void initializeForm() {
+        mMagicForm = new MagicForm();
+        mMagicForm.addField(new FormField(mTitleEditText)
+                .addValidation(new ValidationNotEmpty().setMessage(getString(R.string.add_thread_title_invalid_message_empty))))
+                .addField(new FormField(mUrlEditText)
+                        .addValidation(new ValidationNotEmpty().setMessage(getString(R.string.add_thread_url_invalid_message_empty)))
+                        .addValidation(new ValidationRegex(Pattern.compile("^(http://|https://)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}\\.([a-z]+)?$")).setMessage(getString(R.string.add_thread_url_invalid_message))))
+                .setListener(new ValidatorCallbacks() {
+                    @Override
+                    public void onSuccess() {
+                        addThread();
+                    }
 
-					@Override
-					public void onFailed(List<FormError> errors)
-					{
-						Log.d("FORM VALIDATION:", "Invalid");
-					}
-				});
-	}
+                    @Override
+                    public void onFailed(List<FormError> errors) {
+                        Log.d("FORM VALIDATION:", "Invalid");
+                    }
+                });
+    }
 
-	private void addThread()
-	{
-		Thread thread = new Thread(mTitleEditText.getText().toString(),
-				mUrlEditText.getText().toString(), DateUtils.dateToTZString(new Date()), "username");
+    private void addThread() {
+        Thread thread = new Thread(mTitleEditText.getText().toString(),
+                mUrlEditText.getText().toString(), DateUtils.dateToTZString(new Date()), "username");
 
-		ThreadRequest.addThread(new RequestHandler(new RequestCallbacks<Object, Object>()
-		{
-			@Override
-			protected void onRequestSuccess(Object response)
-			{
-				Intent i = getIntent();
-				setResult(RESULT_OK, i);
-				finish();
-			}
+        ThreadRequest.addThread(new RequestHandler(new RequestCallbacks<Object, Object>() {
+            @Override
+            protected void onRequestSuccess(Object response) {
+                Intent i = getIntent();
+                setResult(RESULT_OK, i);
+                finish();
+            }
 
-			@Override
-			protected void onRequestError(Object error)
-			{
-				Log.d("ADD THREAD RESULT:", "Error");
-			}
-		}, thread));
-	}
+            @Override
+            protected void onRequestError(Object error) {
+                Log.d("ADD THREAD RESULT:", "Error");
+            }
+        }, thread));
+    }
 
 
 }

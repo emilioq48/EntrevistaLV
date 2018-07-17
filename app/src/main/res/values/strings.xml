@@ -3,7 +3,7 @@
 
     <!-- Menus Actions -->
     <string name="menu_action_done">Done</string>
-    
+
     <!-- Sign Up -->
     <string name="sign_up_toolbar_title">Create Account</string>
     <string name="sign_up_username_hint">Username</string>
@@ -12,7 +12,7 @@
     <string name="sign_up_create_account_hint">Create Account</string>
 
     <!-- Main -->
-    <string name="main_toolbar_title">Home</string>
+    <string name="main_toolbar_title">@string/app_name</string>
 
     <!-- Add Thread -->
     <string name="add_thread_toolbar_title">New Thread</string>
@@ -38,8 +38,21 @@
     <string name="add_comment_toolbar_title">Add Comment</string>
     <string name="add_comment_et_hint">Add comment...</string>
     <string name="add_comment_et_invalid_message_empty">This field is required</string>
+    <string name="menu_action_profile">profile</string>
 
     <!-- Thread Web View -->
-    
+
+    <!-- Posts -->
+    <string name="item_post_comments_text"> %1$s Comments</string>
+    <string name="item_post_description_sample_text">Til there is a search engine that won\'t keep track of your searches.</string>
+    <string name="item_post_user_name_sample_text">john_carter</string>
+    <string name="item_post_user_name_sample2_text">John Carter</string>
+
+    <!-- Activity Profile -->
+    <string name="activity_profile_post_tab_title">Post</string>
+    <string name="activity_profile_comments_tab_title">Comments</string>
+    <string name="activity_profile_card_title">John Carter</string>
+    <string name="activity_profile_card_posts">1 post</string>
+    <string name="activity_profile_card_comments">23 comments</string>
 
 </resources>
